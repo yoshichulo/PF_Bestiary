@@ -11,6 +11,6 @@ It's oriented to show characteristics like:
 + All its abilities.
 + And more...
 
-This is by far what is actually designed (not in code yet)
+This is by far what is actually designed (yet implementing code)
 
 ![example_img](https://i.imgur.com/zaCgq1f.png "PF Bestiary example")
