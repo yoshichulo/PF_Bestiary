@@ -1,16 +1,16 @@
-# pf_bestiary
+# PF Bestiary
 
-A new Flutter project.
+PF Bestiary is a Pathfinder built-in bestiary, where you are able to filter, search and look for +1500 beasts in _Pathfinder RPG Bestiary_ volumes and _Pathfinder Adventure Path_ ones
 
-## Getting Started
+It's oriented to show characteristics like:
++ Basic and advanced stats.
++ Name.
++ Description.
++ CR and XP.
++ Type and alignment.
++ All its abilities.
++ And more...
 
-This project is a starting point for a Flutter application.
+This is by far what is actually designed (not in code yet)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![example_img](https://i.imgur.com/zaCgq1f.png "PF Bestiary example")
