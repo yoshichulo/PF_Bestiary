@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'TopSection.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,63 +11,35 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 39, 37, 33),
         body: Column(
-          children: <Widget>[TopSection()],
+          children: <Widget>[TopBar(), MainStatsWidget()],
         ),
       ),
     );
   }
 }
 
-class TopSection extends StatelessWidget {
+class MainStatsWidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        MobNameWidget(),
-        MobLogoWidget(),
-        Spacer(),
-        MobCRWidget(),
-      ],
-    );
-  }
-}
-
-class MobNameWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext builder) {
     return Container(
-      padding: EdgeInsets.only(top: 12, bottom: 6, left: 30, right: 30),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(22),
-        ),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 220, 36, 48),
-            Color.fromARGB(255, 150, 68, 191)
-          ],
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      padding: EdgeInsets.all(12),
+      child: Row(
         children: <Widget>[
-          Text(
-            'Aboleth',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 34,
-              fontWeight: FontWeight.bold,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Stat('STR', 18),
+              Stat('DEX', 9),
+              Stat('CON', 15),
+            ],
           ),
-          Text(
-            '9,843,292 XP',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 14,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Stat('INT', 18),
+              Stat('WIS', 15),
+              Stat('CHA', 18),
+            ],
           ),
         ],
       ),
@@ -74,46 +47,45 @@ class MobNameWidget extends StatelessWidget {
   }
 }
 
-class MobLogoWidget extends StatelessWidget {
+class Stat extends StatelessWidget {
+  final String type;
+  final int value;
+
+  String calculateModifier() {
+    double mod = (this.value - 10) / 2;
+    if (mod >= 0)
+      return "+${mod.toInt()}";
+    else
+      return "-${mod.round()}";
+  }
+
+  Stat(this.type, this.value);
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child: Image.asset('assets/images/aberration_logo.png'),
-      ),
-    );
-  }
-}
-
-class MobCRWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-          minHeight: 50, minWidth: 50, maxHeight: 60, maxWidth: 60),
-      child: Container(
-        padding: EdgeInsets.all(8),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color.fromARGB(255, 220, 36, 48),
-              Color.fromARGB(255, 150, 68, 191)
-            ],
+      alignment: Alignment.centerLeft,
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(5),
+            child: Image.asset('assets/images/list_point.png'),
           ),
-        ),
-        child: Text(
-          '151',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 34,
-            fontWeight: FontWeight.bold,
+          Text(
+            '${this.type}: ',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
+          Text(
+            '${this.value} (${calculateModifier()})',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+          )
+        ],
       ),
     );
   }
