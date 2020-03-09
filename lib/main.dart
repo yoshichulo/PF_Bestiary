@@ -8,46 +8,43 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(),
+        backgroundColor: Color.fromARGB(255, 39, 37, 33),
+        body: Column(
+          children: <Widget>[TopSection()],
+        ),
       ),
     );
   }
 }
 
-class MobName extends StatelessWidget {
+class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Column(
-        children: <Widget>[
-          MobTitle('Aboleth'),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              'Four long tentacles writhe from this three-eyed fish-like creature’s flanks, and its green body glistens with thick, clear slime.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
-                fontStyle: FontStyle.italic,
-              ),
+    return Row(
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blue, Colors.yellow],
             ),
           ),
-          Separator(),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Align(
-              alignment: Alignment.center,
-              child: StatsWidget(18, 9, 15, 18, 15, 18),
+          margin: EdgeInsets.all(15.0),
+          child: Text(
+            'Aboleth',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }
-
+/*
 class Separator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -63,4 +60,4 @@ class Separator extends StatelessWidget {
       ],
     );
   }
-}
+} */
