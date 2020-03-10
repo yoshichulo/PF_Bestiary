@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class MainStatsWidget extends StatelessWidget {
   final String list_point_path = 'assets/images/list_point.png';
   final String heart_icon_path = 'assets/images/heart_icon.png';
@@ -60,6 +59,63 @@ class MainStatsWidget extends StatelessWidget {
   }
 }
 
+class SecondaryStatsWidget extends StatelessWidget {
+  final String list_point_path = 'assets/images/list_point.png';
+
+  @override
+  Widget build(BuildContext builder) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      child: Row(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(
+              left: 5,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Stat('FORT', 8, list_point_path),
+                Stat('REF', 5, list_point_path),
+                Stat('WILL', 11, list_point_path),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+              left: 5,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Stat('INIT', 18, list_point_path),
+                Stat.withData('ALIGN', 'LE', list_point_path),
+                Stat.withData('SIZE', '15ft.', list_point_path),
+              ],
+            ),
+          ),
+          Flexible(
+            child: Container(
+              padding: EdgeInsets.only(
+                left: 5,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Stat('BASE ATK', 6, list_point_path),
+                  Stat.withData('CMB', "13", list_point_path),
+                  Stat.withData(
+                      'CMD', "24 (can't be tripped)", list_point_path),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class Stat extends StatelessWidget {
   String type;
   int value;
@@ -85,7 +141,7 @@ class Stat extends StatelessWidget {
           RichText(
             text: TextSpan(
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 14,
                 color: Colors.white,
               ),
               children: [
@@ -96,7 +152,7 @@ class Stat extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: '${this.type}:',
+                  text: '${this.type}: ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
