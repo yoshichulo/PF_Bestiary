@@ -102,7 +102,7 @@ class Mob{
     organization = data['organization'];
     treasure = data['treasure'];
     specialAbilities = data['specialAbilities'];
-    description = data['description']
+    description = data['description'];
   }
 
 }

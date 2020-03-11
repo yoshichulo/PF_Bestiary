@@ -83,7 +83,3 @@ class DescriptionWidget extends StatelessWidget {
     );
   }
 }
-
-class parseMobsJson(){
-  
-}
