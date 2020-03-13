@@ -1,11 +1,9 @@
 import 'dart:ui';
-import 'dart:convert';
 
 import 'Mob.dart';
 import 'topSection.dart';
 import 'statsSection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,20 +15,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          backgroundColor: Color.fromARGB(255, 39, 37, 33),
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                TopBar(),
-                MainStatsWidget(),
-                Separator(),
-                DescriptionWidget(),
-                Separator(),
-                SecondaryStatsWidget(),
-                Separator(),
-              ],
-            ),
-          )),
+        backgroundColor: Color.fromARGB(255, 39, 37, 33),
+        body: Column(
+          children: <Widget>[
+            TopBar(),
+            MainStatsWidget(),
+            Separator(),
+            DescriptionWidget(),
+            Separator(),
+            SecondaryStatsWidget(),
+            Separator(),
+          ],
+        ),
+      ),
     );
   }
 }

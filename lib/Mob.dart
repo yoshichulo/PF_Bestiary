@@ -17,7 +17,7 @@ class Mob{
   int touch;
   int flatfooted;
   List<String> acBonuses;
-  int hp; //toint
+  String hp; //toint
   String hitDice;
   int fort;
   int ref;
@@ -70,7 +70,7 @@ class Mob{
     touch = data['touch'];
     flatfooted = data['flatfooted'];
     acBonuses = data['acBonuses'];
-    hp = int.parse(data['hp']);
+    hp = data['hp'];
     hitDice = data['hitDice'];
     fort = data['fort'];
     ref = data['ref'];

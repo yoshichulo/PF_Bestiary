@@ -62,10 +62,9 @@ class MobLogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child: Image.asset('assets/images/aberration_logo.png'),
+      padding: EdgeInsets.all(5),
+      child: Image(
+        image: AssetImage('assets/images/aberration_logo.png'),
       ),
     );
   }
